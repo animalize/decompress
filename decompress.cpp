@@ -1,20 +1,46 @@
-﻿// decompress.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+﻿#include <stdio.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <time.h>
 
-#include <iostream>
+#include "lib/zstd.h"
+#include "common.h"
 
-int main()
-{
-    std::cout << "Hello World!\n";
+const char* PATH = "e:\\txt.zst";
+
+int decompress(char *input_buffer, size_t input_buffer_size) {
+    size_t decompressed_size;
+    size_t zstd_ret;
+    char *output_buffer;
+    
+    // output buffer
+    decompressed_size = ZSTD_getDecompressedSize(input_buffer, input_buffer_size);
+    output_buffer = (char*) malloc(decompressed_size);
+
+    // decompress
+    int t1 = clock();
+    zstd_ret = ZSTD_decompress(output_buffer, decompressed_size,
+                               input_buffer, input_buffer_size);
+    int t2 = clock();
+
+    printf("time: %d\n", t2-t1);
+    
+    free(output_buffer);
+    return 0;
 }
 
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
 
-// 入门使用技巧: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
+int main(int argc, const char** argv)
+{
+    char *input_buffer;
+    size_t input_buffer_size;
+
+    // read file
+    input_buffer = (char*) mallocAndLoadFile_orDie(PATH, &input_buffer_size);
+    printf("read %zd bytes.\n", input_buffer_size);
+
+    // decompress
+    decompress(input_buffer, input_buffer_size);
+
+    free(input_buffer);
+}

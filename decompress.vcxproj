@@ -130,6 +130,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +142,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="decompress.cpp" />
+    <ClCompile Include="lib\common\debug.c" />
+    <ClCompile Include="lib\common\entropy_common.c" />
+    <ClCompile Include="lib\common\error_private.c" />
+    <ClCompile Include="lib\common\fse_decompress.c" />
+    <ClCompile Include="lib\common\pool.c" />
+    <ClCompile Include="lib\common\threading.c" />
+    <ClCompile Include="lib\common\xxhash.c" />
+    <ClCompile Include="lib\common\zstd_common.c" />
+    <ClCompile Include="lib\decompress\huf_decompress.c" />
+    <ClCompile Include="lib\decompress\zstd_ddict.c" />
+    <ClCompile Include="lib\decompress\zstd_decompress.c" />
+    <ClCompile Include="lib\decompress\zstd_decompress_block.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\zstd.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

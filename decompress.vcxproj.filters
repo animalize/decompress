@@ -18,5 +18,46 @@
     <ClCompile Include="decompress.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="lib\common\debug.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\common\entropy_common.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\common\error_private.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\common\fse_decompress.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\common\pool.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\common\threading.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\common\xxhash.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\common\zstd_common.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\decompress\huf_decompress.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\decompress\zstd_ddict.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\decompress\zstd_decompress.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\decompress\zstd_decompress_block.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\zstd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
